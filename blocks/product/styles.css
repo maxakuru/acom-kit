@@ -1,0 +1,68 @@
+/*
+product wrapper
+*/
+
+.product-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    border: 1px solid transparent;
+    position: relative;
+}
+
+/*product contents*/
+.product-wrapper > .inline-icon,
+.product-wrapper > .inline-label {
+    margin: 0;
+}
+.product-wrapper > .inline-icon {
+    margin-right: 12px;
+}
+.product-wrapper > .inline-label {
+    font-size: 18px;
+}
+.product-wrapper > .label {
+    display: block;
+    padding: 0;
+    margin: 0;
+    font-size: 18px; font-weight: 700;
+}
+/*prevent title/label overflow*/
+.product-wrapper.has-badge > .label {
+    margin-right: 60px;
+}
+.product-wrapper > .price {
+    display: block;
+    padding: 0;
+    margin: 12px 0 0;
+    font-size: 18px; font-weight: 400;
+    width: 100%;
+}
+.product-wrapper > .desc {
+    margin: 12px 0 0;
+    font-size: 14px; font-weight: 400;
+}
+.product-wrapper > .desc a{
+    color: var(--spectrum-blue);
+    text-decoration: none;
+}
+.product-wrapper > .desc a:hover{
+    text-decoration: underline;
+}
+.product-wrapper > .cta {
+    margin: var(--spacing-l) 0 0;
+    padding: var(--spacing-m) 0 0;
+    border-top: 1px solid #eaeaea;
+    flex: 1 1 100%;
+    text-align: right;
+}
+.product-wrapper > .badge {
+    position: absolute;
+    top: 12px;
+    right: 0;
+    padding: 4px 8px;
+    border-radius: 4px 0 0 4px;
+    background: #EDCC2D;
+    color: black;
+    margin: 0;
+}

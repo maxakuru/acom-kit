@@ -8,19 +8,42 @@
 
     --type-heading-all-weight: 700;
 
+    --type-heading-xxl-size: 44px;
+    --type-heading-xxl-lh: 55px;
+
     --type-heading-xl-size: 36px;
     --type-heading-xl-lh: 45px;
+
+    --type-heading-l-size: 28px;
+    --type-heading-l-lh: 35px;
+
+    --type-heading-m-size: 24px;
+    --type-heading-m-lh: 30px;
+
+    --type-heading-s-size: 20px;
+    --type-heading-s-lh: 25px;
+
+    --type-heading-xs-size: 18px;
+    --type-heading-xs-lh: 22.5px;
+
+    --type-heading-xxs-size: 16px;
+    --type-heading-xxs-lh: 20px;
 
     --type-body-m-size: 18px;
     --type-body-m-lh: 27px;
 
+    --type-body-s-size: 16px;
+    --type-body-s-lh: 24px;
+
     /* Spacing */
+    --spacing-xs: 8px;
     --spacing-s: 16px;
     --spacing-m: 24px;
     --spacing-l: 48px;
 
     /* Colors */
     --spectrum-blue: rgb(20, 115, 230);
+    --spectrum-blue-0: rgb(22, 129, 255);
 
     /* Grid */
     --grid-mobile-container-width: 83.4%;
@@ -28,8 +51,22 @@
 }
 
 body {
+    opacity: 0;
+    transition: opacity 0.2s;
     margin: 0;
     font-family: adobe-clean, -apple-system, BlinkMacSystemFont, Segoe UI,Roboto, sans-serif;
+}
+
+.is-Loaded {
+    opacity: 1;
+}
+
+img {
+    max-width: 100%;
+}
+
+code {
+    line-break: anywhere;
 }
 
 /* Themes */
@@ -50,7 +87,27 @@ a.button {
     font-size: 14px;
 }
 
+a.secondary {
+    color: black;
+    border: 2px solid black;
+    background-color: transparent;
+    border-radius: 16px;
+    display: inline-block;
+    line-height: 28px;
+    padding: 0 14px;
+    text-decoration: none;
+    font-size: 14px;
+    margin: 0 16px 24px 0;
+}
+/* tablet */
+@media screen and (min-width: 768px) {
+    a.secondary {
+        margin-right: 32px;
+    }
+}
+
 a.over-background {
+    color: white;
     border: 2px solid white;
     background-color: transparent;
     border-radius: 16px;
@@ -61,30 +118,12 @@ a.over-background {
     font-size: 14px;
 }
 
-/* Style Guide */
-
-main > div > :is(h1, h2, h3, h4, h5, h6) {
-    color: #212121;
-    max-width: var(--grid-mobile-container-width);
-    margin: 0 auto;
-}
-
-@media screen and (min-width: 1440px) {
-    main > div > :is(h1, h2, h3, h4, h5, h6) {
-        max-width: var(--grid-desktop-container-width);
-    }
-}
-
-main > div > h1 {
-    border-bottom: 1px solid rgba(33,33,33,.15);
-    margin: 96px auto 0 auto;
-}
-
-main > div > h2 {
-    margin: 72px auto 24px auto;
-}
-
 /* Block pre-loads */
-div[class^='marquee'] {
+div[class^='header']
+div[class^='marquee'],
+div[class^='media'],
+div[class^='merch'],
+div[class^='z-pattern'] {
     display: none;
 }
+

@@ -1,12 +1,120 @@
-const blockLoader = (config, suppliedEl) => {
-    const parentEl = suppliedEl || document;
+const config = {
+    themes: {
+        tutorial: {
+            class: 'tutorial-theme',
+            location: '/themes/tutorial/',
+            styles: 'styles.css',
+        },
+        styleguide: {
+            class: 'styleguide-theme',
+            location: '/themes/styleguide/',
+            styles: 'styles.css',
+        },
+        gallery: {
+            class: 'gallery-theme',
+            location: '/themes/gallery/',
+            styles: 'styles.css',
+        },
+    },
+    blocks: {
+        '.header': {
+            location: '/blocks/header/',
+            styles: 'styles.css',
+            scripts: 'scripts.js',
+        },
+        '.headline': {
+            location: '/blocks/headline/',
+            styles: 'styles.css',
+            scripts: 'scripts.js',
+        },
+        '.grid': {
+            location: '/blocks/grid/',
+            styles: 'styles.css',
+            scripts: 'scripts.js',
+        },
+        '.marquee': {
+            location: '/blocks/marquee/',
+            styles: 'styles.css',
+            scripts: 'scripts.js',
+        },
+        '.media': {
+            location: '/blocks/media/',
+            styles: 'styles.css',
+            scripts: 'scripts.js',
+        },
+        '.merch': {
+            location: '/blocks/merch/',
+            styles: 'styles.css',
+            scripts: 'scripts.js',
+        },
+        '.tabs': {
+            location: '/blocks/tabs/',
+            styles: 'styles.css',
+            scripts: 'scripts.js',
+        },
+        '.promo': {
+            location: '/blocks/promo/',
+            styles: 'styles.css',
+            scripts: 'scripts.js',
+        },
+        '.products, .product': {
+            location: '/blocks/product/',
+            styles: 'styles.css',
+            scripts: 'scripts.js',
+        },
+        '.z-pattern': {
+            location: '/blocks/zpattern/',
+            styles: 'styles.css',
+            scripts: 'scripts.js',
+        },
+        '.pagenav': {
+            location: '/blocks/pagenav/',
+            styles: 'styles.css',
+        },
+        'a[href^="https://gist.github.com"]': {
+            location: '/blocks/embed/',
+            scripts: 'gist.js',
+        }
+    },
+};
 
-    const addStyle = (location) => {
-        const element = document.createElement('link');
-        element.setAttribute('rel', 'stylesheet');
-        element.setAttribute('href', location);
-        document.querySelector('head').appendChild(element);
+const getMetadata = (name) => {
+    const meta = document.head.querySelector(`meta[name="${name}"]`);
+    return meta && meta.content;
+};
+
+const addStyle = (location, loadEvent) => {
+    const element = document.createElement('link');
+    element.setAttribute('rel', 'stylesheet');
+    element.setAttribute('href', location);
+    if (loadEvent) {
+        element.addEventListener('load', loadEvent);
+    }
+    document.querySelector('head').appendChild(element);
+};
+
+const loadTheme = (config) => {
+    const theme = getMetadata('theme');
+    const isLoaded = () => {
+        document.body.classList.add('is-Loaded');
     };
+    if (theme) {
+        const themeConf = config.themes[theme] || {};
+        if (themeConf.class) {
+            document.body.classList.add(themeConf.class);
+        }
+        if (themeConf.styles) {
+            addStyle(`${themeConf.location}${themeConf.styles}`, isLoaded);
+        } else {
+            isLoaded();
+        }
+    } else {
+        isLoaded();
+    }
+};
+
+const loadBlocks = (config, suppliedEl) => {
+    const parentEl = suppliedEl || document;
 
     const initJs = async (element, block) => {
         // If the block scripts haven't been loaded, load them.
@@ -17,7 +125,7 @@ const blockLoader = (config, suppliedEl) => {
             }
             // If this block type has scripts and they're already imported
             if (block.module) {
-                block.module.default(element);
+                block.module.default(element, { addStyle });
             }
         }
         element.classList.add('is-Loaded');
@@ -32,7 +140,7 @@ const blockLoader = (config, suppliedEl) => {
         const { blockSelect } = element.dataset;
         const block = config.blocks[blockSelect];
 
-        if (!block.loaded) {
+        if (!block.loaded && block.styles) {
             addStyle(`${block.location}${block.styles}`);
         }
 
@@ -63,8 +171,7 @@ const blockLoader = (config, suppliedEl) => {
         variantBlocks.forEach((variant) => {
             let { className } = variant;
             className = className.slice(0, -1);
-            // eslint-disable-next-line no-param-reassign
-            variant.className = '';
+            variant.classList.remove(className);
             const classNames = className.split('--');
             variant.classList.add(...classNames);
         });
@@ -134,14 +241,5 @@ const blockLoader = (config, suppliedEl) => {
     init(parentEl);
 };
 
-const config = {
-    blocks: {
-        '.marquee': {
-            location: '/blocks/marquee/',
-            styles: 'styles.css',
-            scripts: 'scripts.js',
-        },
-    },
-};
-
-blockLoader(config);
+loadTheme(config);
+loadBlocks(config);

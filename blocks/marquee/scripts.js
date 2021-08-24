@@ -12,9 +12,13 @@ const init = (element) => {
     content.querySelector(':scope > div:first-of-type').classList.add('text');
     content.querySelector(':scope > div:last-of-type').classList.add('image');
 
-    const cta = content.querySelector(':scope > div:first-of-type a');
     const ctaType = element.classList.contains('dark') ? 'over-background' : 'cta';
-    cta.classList.add('button', ctaType);
+    const ctas = content.querySelectorAll(':scope > div:first-of-type a');
+    let i;
+    for (i = 0; i < ctas.length; i++) {
+        let modClass = (i === 0 && ctas.length > 1) ? 'secondary' : 'primary';
+        ctas[i].classList.add('button', modClass);
+    }
 };
 
 export default init;

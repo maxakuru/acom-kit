@@ -1,0 +1,135 @@
+.header.main {
+    background: white;
+    color: #FA0F00;
+}
+
+.header.is-Loaded {
+    display: block;
+}
+
+.header .container {
+    max-width: var(--grid-mobile-container-width);
+    margin: 0 auto;
+    position: relative;
+}
+
+.header.main img {
+    height: 20px;
+    position: relative;
+    padding-right: 8px;
+    vertical-align: middle;
+}
+.header .nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.header .nav-container p {
+    /*display: inline-block;*/
+}
+.header .nav-container p:nth-child(2) {
+   margin-left: auto;
+}
+
+.header .nav-container a {
+    color: #212121;
+    text-decoration: none;
+    padding: 0 8px;
+    font-size: 14px;
+}
+.header .nav-container a:hover {
+    color: #000000;
+}
+.footer.main {
+    background: #ffffff;
+    border-top: 1px solid #cccccc;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin: 0 auto;
+    max-width: var(--grid-desktop-container-width);
+    padding: 24px;
+    justify-content: center;
+}
+.footer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.footer .footer-group {
+    margin: 12px;
+}
+.footer .footer-section a {
+    color: #7e7e7e;
+    text-decoration: none;
+}
+.footer .footer-section h2 {
+    color: #818181;
+    margin: 0 0 8px;
+    font-size: 18px;
+}
+
+.footer .footer-section ul {
+    margin: 0;
+}
+
+/* tablet */
+@media screen and (min-width: 768px) {
+    .footer.main {
+        grid-template-columns: 20% 20% 20% 20% 20%;
+    }
+}
+@media screen and (min-width: 1440px) {
+    .header .container {
+        /*max-width: 1440px;*/
+        max-width: var(--grid-desktop-container-width);
+    }
+}
+
+
+/* Style Guide */
+main > div > :is(h1, h2, h3, h4, h5, h6) {
+    color: #212121;
+    max-width: var(--grid-mobile-container-width);
+    margin: 0 auto;
+}
+
+@media screen and (min-width: 1440px) {
+    main > div > :is(h1, h2, h3, h4, h5, h6) {
+        max-width: var(--grid-desktop-container-width);
+    }
+}
+
+main > div > h1 {
+    border-bottom: 1px solid rgba(33,33,33,.10);
+    margin: 96px auto 0 auto;
+}
+main > div > h2 {
+    margin: 72px auto 24px auto;
+    position: relative;
+    border-bottom: 1px solid rgba(20, 115, 230, .25);
+    text-shadow:
+        3px 3px 0 #fff,
+        -1px -1px 0 #fff,
+        1px -1px 0 #fff,
+        -1px 1px 0 #fff,
+        1px 1px 0 #fff;
+}
+
+main > div > h2:after {
+    content: "";
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(20, 115, 230, .15);
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 12px 0 0;
+    position: absolute;
+    top: 50%;
+    margin-top: -30px;
+    left: -30px;
+    z-index: -1;
+}
+main > div > h3 {
+    margin: 36px auto 24px auto;
+}

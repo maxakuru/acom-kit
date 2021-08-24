@@ -1,0 +1,33 @@
+.pagenav {
+    background: white;
+    color: #222222;
+    padding: 0 12px;
+    line-height: 1.1em;
+    font-size: 14px;
+    border-bottom: 1px solid #cccccc;
+    z-index: 999;
+    max-width: var(--grid-mobile-container-width);
+    margin: 0 auto;
+}
+.pagenav > div > div {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.pagenav > div > div p {
+    margin: 12px 12px 12px 0;
+}
+.pagenav a {
+    color: rgb(20, 115, 230);
+    text-decoration: none;
+}
+.pagenav a:hover {
+    color: rgb(22, 129, 255);
+    text-decoration: underline;
+}
+
+@media screen and (min-width: 1440px) {
+    .pagenav {
+        max-width: var(--grid-desktop-container-width);
+    }
+}

@@ -1,0 +1,129 @@
+@import url("../product/styles.css");
+
+.merch {
+    position: relative;
+    padding: var(--spacing-l) 0;
+    background: black;
+}
+.merch.is-Loaded {
+    display: block;
+    opacity: 1;
+}
+
+.merch .ribbon img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.merch .ribbon {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 25px;
+}
+
+.merch .title {
+    color: #ffffff;
+    text-align: center;
+    padding: var(--spacing-m) 0;
+    margin: 0 24px;
+}
+
+.merch .container {
+    max-width: var(--grid-mobile-container-width);
+    margin: 0 auto;
+    position: relative;
+}
+
+.merch .products {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.merch .product-wrapper {
+    background: #ffffff;
+    padding: var(--spacing-s);
+    border-radius: 8px;
+    margin-bottom: var(--spacing-m);
+}
+
+.merch .footer {
+    padding: var(--spacing-m) 0;
+    color: #ffffff;
+    text-align: center;
+}
+
+.merch .footer a {
+    text-decoration: underline;
+    color: #ffffff;
+}
+
+/*
+ .outro
+ .light
+ .gray
+ */
+
+.merch.light {
+    background: white;
+}
+.merch.light .title {
+    color: black;
+}
+.merch.gray {
+    background: #f5f5f5;
+}
+.merch.gray .ribbon {
+    display: none;
+}
+.merch.gray .title {
+    color: #666666;
+}
+.merch.light .footer,
+.merch.gray .footer {
+    color: black;
+}
+
+.merch.light .footer a,
+.merch.gray .footer a {
+    color: black;
+}
+.merch.light .product-wrapper,
+.merch.gray .product-wrapper {
+    border-color: #cccccc;
+}
+
+.merch.light .product-wrapper.has-badge,
+.merch.gray .product-wrapper.has-badge {
+    border-color: #EDCC2D;
+}
+.merch .product-wrapper.has-badge{
+    border-color: #EDCC2D;
+}
+/*prevent title/label overflow*/
+.merch .product-wrapper.has-badge > .label {
+    margin-right: 60px;
+}
+
+/* tablet */
+@media screen and (min-width: 768px) {
+    .merch .products {
+        flex-direction: row;
+        justify-content: space-evenly;
+        gap: var(--spacing-m);
+    }
+
+    .merch .product-wrapper {
+        width: 33%;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .merch .container {
+        max-width: var(--grid-desktop-container-width);
+    }
+}

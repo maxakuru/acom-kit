@@ -1,0 +1,221 @@
+:root {
+    /*!* Typography *!*/
+    /*--type-detail-all-weight: 700;*/
+
+    /*--type-detail-m-size: 12px;*/
+    /*--type-detail-m-lh: 15px;*/
+    /*--type-detail-m-transform: uppercase;*/
+
+    /*--type-heading-all-weight: 700;*/
+
+    /*--type-heading-xl-size: 36px;*/
+    /*--type-heading-xl-lh: 45px;*/
+
+    /*--type-body-m-size: 18px;*/
+    /*--type-body-m-lh: 27px;*/
+
+    /*!* Spacing *!*/
+    /*--spacing-s: 16px;*/
+    /*--spacing-m: 24px;*/
+    /*--spacing-l: 48px;*/
+
+    /*!* Colors *!*/
+    /*--spectrum-blue: rgb(20, 115, 230);*/
+
+    /*!* Grid *!*/
+    /*--grid-mobile-container-width: 83.4%;*/
+    /*--grid-desktop-container-width: 1200px;*/
+
+    /* Tab Colors */
+    /* Light */
+    --tabs-border-color-light: #d8d8d8;
+    --tabs-text-color-light: #7e7e7e;
+    --tabs-active-text-color-light: #000000;
+    --tabs-bg-color-light: #f1f1f1;
+    --tabs-active-bg-color-light: #ffffff;
+    /* Dark */
+    --tabs-border-color-dark: #000000;
+    --tabs-text-color-dark: #cdcdcd;
+    --tabs-active-text-color-dark: #ffffff;
+    --tabs-bg-color-dark: #1a1a1a;
+    --tabs-active-bg-color-dark: #111111;
+}
+
+.tabs {
+    position: relative;
+    margin: var(--spacing-m) 0 var(--spacing-m) 0;
+    opacity: 0;
+}
+
+.tabs.is-Loaded {
+    display: block;
+    opacity: 1;
+}
+
+.tabs .tabListBg img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.tabs .tabListBg {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    display: none;
+}
+/* bottom border */
+.tabs .tabListBg:before {
+    content: '';
+    background: var(--tabs-border-color-light);
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    z-index: -1;
+    height: 1px;
+}
+
+.tabs .container {
+    max-width: var(--grid-mobile-container-width);
+    margin: 0 auto;
+    position: relative;
+}
+
+.tabs .list-container {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    z-index: 2;
+}
+
+/* center tabs */
+.tabs.center .list-container:after,
+.tabs.center .list-container:before {
+    content: "";
+    margin: auto;
+}
+
+.tabs .tab-content {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--tabs-border-color-light);
+    display: none;
+    width: 100%;
+}
+.radiotab {
+    position: absolute;
+    opacity: 0;
+}
+
+.label {
+    padding: 16px;
+    line-height: 16px;
+    font-size: 16px;
+    cursor: pointer;
+    color: var(--tabs-text-color-light);
+    width: 100%;
+    float: left;
+    border: 1px solid transparent;
+    border-color: var(--tabs-border-color-light) transparent;
+    margin-top: -1px;
+    background: var(--tabs-bg-color-light);
+    transition: color 0.2s ease-in-out;
+}
+.label:first-of-type{
+    margin-left: 0;
+    margin-top: 0;
+}
+.label:hover{
+    color: var(--tabs-active-text-color-light);
+}
+
+.radiotab:checked + .label {
+    background: var(--tabs-active-bg-color-light);
+    color: var(--tabs-active-text-color-light);
+}
+
+.radiotab:checked + .label + .tab-content {
+    display: block;
+}
+
+/*invoke tabs as media (uncomment to enable)*/
+/*@media (min-width: 600px) {*/
+    .tabs .tab-content {
+        order: 99;
+    }
+    .tabs .tabListBg {
+        height: 48px;
+        display: block;
+    }
+    .label {
+        width: auto;
+        border-radius: 4px 4px 0 0;
+        margin-left: -1px;
+        margin-top: 0;
+        border-color: transparent;
+        background: transparent;
+    }
+    .radiotab:checked + .label {
+        border-color: var(--tabs-border-color-light) var(--tabs-border-color-light) transparent;
+    }
+    .dark .radiotab:checked + .label {
+        border-color: var(--tabs-border-color-dark) var(--tabs-border-color-dark) transparent;
+    }
+
+/*}*/
+
+@media screen and (min-width: 1440px) {
+
+    .label {
+        padding: 24px 32px 18px;
+        line-height: 18px;
+        font-size: 18px;
+    }
+    .tabs .tabListBg {
+        height: 60px;
+    }
+    .tabs .tab-content {
+        padding: 32px 0;
+    }
+    .tabs .list-container:before {
+        top: 60px;
+    }
+    .tabs .container {
+        max-width: var(--grid-desktop-container-width);
+    }
+}
+
+.tabs .footer {
+    padding-top: var(--spacing-m);
+    color: #ffffff;
+    text-align: center;
+}
+
+
+.tabs.dark {
+    background: var(--tabs-active-bg-color-dark);
+}
+.tabs.dark .label {
+    color: var(--tabs-text-color-dark);
+    background: var(--tabs-bg-color-dark);
+}
+.tabs.dark .radiotab:checked + .label {
+    color: white;
+    background: var(--tabs-active-bg-color-dark);
+}
+.tabs.dark .list-container:before {
+    background: var(--tabs-border-color-dark);
+}
+.tabs.dark .label:active {
+    background: var(--tabs-border-color-dark);
+}
+
+/*
+Product wrapper
+*/
+.tabs .product-wrapper {
+
+    /*border: none;*/
+}
