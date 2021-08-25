@@ -5,6 +5,7 @@
 
 .header.is-Loaded {
     display: block;
+    opacity: 1;
 }
 
 .header .container {
@@ -59,13 +60,17 @@
     margin: 12px;
 }
 .footer .footer-section a {
-    color: #7e7e7e;
+    color: #818181;
     text-decoration: none;
+    font-size: 11px;
+}
+.footer .footer-section a:hover {
+    text-decoration: underline;
 }
 .footer .footer-section h2 {
-    color: #818181;
-    margin: 0 0 8px;
-    font-size: 18px;
+    color: #3e3e3e;
+    margin: 0 0 4px;
+    font-size: 12px;
 }
 
 .footer .footer-section ul {

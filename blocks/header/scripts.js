@@ -6,8 +6,6 @@ const init = (element) => {
     const navContainer = element.querySelector(':scope > div > div');
     navContainer.classList.add('nav-container');
 
-    console.log('header.js:', {element}, {header});
-
     const footer = document.querySelector('.footer.main');
     const footerLinks = [
         {
@@ -83,7 +81,6 @@ const init = (element) => {
     ];
     let footerHTML = '';
     footerLinks.forEach( function (section) {
-        console.log(section.label)
         footerHTML += '<ul class="footer-group">'
         if (section.links.length) {
             footerHTML += '<li class="footer-section">'

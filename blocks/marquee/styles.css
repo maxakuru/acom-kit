@@ -8,6 +8,7 @@
 
 .marquee.is-Loaded {
     display: block;
+    opacity: 1;
 }
 
 .marquee .background img {

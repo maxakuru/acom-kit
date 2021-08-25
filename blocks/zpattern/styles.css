@@ -10,6 +10,7 @@
 
 .z-pattern.is-Loaded {
     display: block;
+    opacity: 1;
 }
 
 .z-pattern .container {
