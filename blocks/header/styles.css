@@ -15,32 +15,17 @@
 }
 
 .header.main img {
-    height: 20px;
-    position: relative;
-    padding-right: 8px;
+    height: 60px;
+    width: auto;
+    max-width: initial;
     vertical-align: middle;
 }
 .header .nav-container {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-}
-.header .nav-container p {
-    /*display: inline-block;*/
-}
-.header .nav-container p:nth-child(2) {
-   margin-left: auto;
+    overflow: hidden;
 }
 
-.header .nav-container a {
-    color: #212121;
-    text-decoration: none;
-    padding: 0 8px;
-    font-size: 14px;
-}
-.header .nav-container a:hover {
-    color: #000000;
-}
 .footer.main {
     background: #ffffff;
     border-top: 1px solid #cccccc;
@@ -86,7 +71,7 @@
 @media screen and (min-width: 1440px) {
     .header .container {
         /*max-width: 1440px;*/
-        max-width: var(--grid-desktop-container-width);
+        max-width: var(--grid-xl-desktop-container-width);
     }
 }
 

@@ -6,6 +6,7 @@ const init = (element) => {
     const navContainer = element.querySelector(':scope > div > div');
     navContainer.classList.add('nav-container');
 
+
     const footer = document.querySelector('.footer.main');
     const footerLinks = [
         {

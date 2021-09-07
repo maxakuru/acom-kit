@@ -48,6 +48,7 @@
     /* Grid */
     --grid-mobile-container-width: 83.4%;
     --grid-desktop-container-width: 1200px;
+    --grid-xl-desktop-container-width: 1440px;
 }
 
 body {
@@ -99,6 +100,7 @@ a.secondary {
     font-size: 14px;
     margin: 0 16px 24px 0;
 }
+
 /* tablet */
 @media screen and (min-width: 768px) {
     a.secondary {
@@ -116,6 +118,13 @@ a.over-background {
     padding: 0 14px;
     text-decoration: none;
     font-size: 14px;
+}
+
+a.button-lrg {
+    border-radius: 20px;
+    font-size: 16px;
+    line-height: 20px;
+    padding: 7px 18px 9px;
 }
 
 /* Block pre-loads */

@@ -1,5 +1,6 @@
 const init = (element) => {
     const bg = element.querySelector(':scope > div:first-of-type > div');
+    const isDark = element.classList.contains('dark');
     bg.classList.add('background');
     const bgImg = bg.querySelector(':scope img');
     if (!bgImg) {
@@ -12,12 +13,15 @@ const init = (element) => {
     content.querySelector(':scope > div:first-of-type').classList.add('text');
     content.querySelector(':scope > div:last-of-type').classList.add('image');
 
-    const ctaType = element.classList.contains('dark') ? 'over-background' : 'cta';
+    const ctaSize = element.classList.contains('large') ? 'button-lrg' : '';
     const ctas = content.querySelectorAll(':scope > div:first-of-type a');
     let i;
     for (i = 0; i < ctas.length; i++) {
-        let modClass = (i === 0 && ctas.length > 1) ? 'secondary' : 'primary';
-        ctas[i].classList.add('button', modClass);
+        let isSecondLink = (i === 0 && ctas.length > 1);
+        let modClass = isSecondLink ? 'secondary' : 'primary';
+        ctas[i].classList.add('button', modClass, ctaSize);
+        if (isDark && isSecondLink)
+            ctas[i].classList.add('over-background');
     }
 };
 
