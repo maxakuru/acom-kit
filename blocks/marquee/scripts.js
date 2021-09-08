@@ -1,7 +1,6 @@
 const init = (element) => {
     const bg = element.querySelector(':scope > div:first-of-type > div');
     const isDark = element.classList.contains('dark');
-    const isLarge = element.classList.contains('large');
     bg.classList.add('background');
     const bgImg = bg.querySelector(':scope img');
     if (!bgImg) {
@@ -20,8 +19,6 @@ const init = (element) => {
         let isSecondLink = (i === 0 && ctas.length > 1);
         let modClass = isSecondLink ? 'secondary' : 'primary';
         ctas[i].classList.add('button', modClass);
-        if (isLarge)
-            ctas[i].classList.add('button-lrg');
         if (isDark && isSecondLink)
             ctas[i].classList.add('over-background');
     }
