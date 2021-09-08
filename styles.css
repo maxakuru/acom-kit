@@ -125,7 +125,6 @@ a.over-background {
 }
 
 /* Block pre-loads */
-div[class^='header'],
 div[class^='marquee'],
 div[class^='media'],
 div[class^='merch'],
